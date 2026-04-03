@@ -9,8 +9,8 @@ class XboxMover(Node):
     def __init__(self):
         super().__init__('xbox_teleop_node')
         
-        # Publish to cmd_vel (change if using twist_mux)
-        self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)
+
+        self.publisher_ = self.create_publisher(Twist_mux, '/cmd_vel_joy', 10)
         
         # Initialize Pygame
         pygame.init()
@@ -28,11 +28,11 @@ class XboxMover(Node):
         self.MAX_ANG = 1.0   # forward/back
         self.DEADZONE = 0.2  # magnitude deadzone
         
-        # Flip directions if needed (VERY IMPORTANT FOR YOUR ROBOT)
+
         self.FLIP_LINEAR = False     # flip steering
         self.FLIP_ANGULAR = False    # flip forward/back
         
-        # Timer loop
+
         self.timer = self.create_timer(0.1, self.update_and_publish)
         
         self.get_logger().info(f"--- XBOX CONTROL ACTIVE: {self.joy.get_name()} ---")
