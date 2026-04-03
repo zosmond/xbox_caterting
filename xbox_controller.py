@@ -29,8 +29,8 @@ class XboxMover(Node):
         self.DEADZONE = 0.2  # magnitude deadzone
         
         # Flip directions if needed (VERY IMPORTANT FOR YOUR ROBOT)
-        self.FLIP_LINEAR = True     # flip steering
-        self.FLIP_ANGULAR = True    # flip forward/back
+        self.FLIP_LINEAR = False     # flip steering
+        self.FLIP_ANGULAR = False    # flip forward/back
         
         # Timer loop
         self.timer = self.create_timer(0.1, self.update_and_publish)
